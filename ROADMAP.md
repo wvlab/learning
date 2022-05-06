@@ -1,15 +1,15 @@
 # Content
 + [C](./C):
-  [X] [Hello world][c_helloworld]
-  [ ] [Variables and types][c_variables]
-  [ ] [Macros][c_macros]
-  [ ] [Codestyle][c_codestyle]
-  [ ] [Libraries][c_libraries]
+  * [X] [Hello world][c_helloworld]
+  * [ ] [Variables and types][c_variables]
+  * [ ] [Macros][c_macros]
+  * [ ] [Codestyle][c_codestyle]
+  * [ ] [Libraries][c_libraries]
 + C++:
   * NULL... и я не особо и хочу...
 + Elixir:
   * `IO.puts("soon")`
-  [ ] Phoenix
+  * [ ] Phoenix
 + Haskell:
   * Not now...
 + Java:
@@ -17,15 +17,15 @@
 + JS:
   * if (null >= 0) console.log("I don't want to learn it now")
 + [Python](./Python):
-  [ ] [Hello world][python_helloworld]
-  [ ] [Variables that are not variables][python_variables]
-  [ ] [Codestyle](https://peps.python.org/pep-0008/)
-  [ ] [Libraries][python_libraries]
+  * [ ] [Hello world][python_helloworld]
+  * [ ] [Variables that are not variables][python_variables]
+  * [ ] [Codestyle](https://peps.python.org/pep-0008/)
+  * [ ] [Libraries][python_libraries]
 + [Rust](./Rust):
-  1. [ ] [Hello world][rust_helloworld]
-  2. [ ] [Variables][rust_variables]
-  *  [ ] [Codestyle][rust_codestyle]
-  *  [ ] [Libraries][rust_libraries]
+  * [ ] [Hello world][rust_helloworld]
+  * [ ] [Variables][rust_variables]
+  * [ ] [Codestyle][rust_codestyle]
+  * [ ] [Libraries][rust_libraries]
 
 [c_codestyle]: ./C/codestyle.md
 [c_helloworld]: ./C/helloworld
