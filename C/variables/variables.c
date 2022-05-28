@@ -53,6 +53,7 @@ typedef double time_t;
 #define printsi(type) printf("Размер типа " #type " = %lu\n", sizeof(type))
 void printsize(void) {
 	printsi(void);
+	// /* В расширении GNU C принято считать размер void за 1байт */
 	printsi(char);
 	printsi(short);
 	printsi(int);

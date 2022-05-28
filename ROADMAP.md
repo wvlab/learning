@@ -1,7 +1,8 @@
 # Content
 + [C](./C):
   * [X] [Hello world][c_helloworld]
-  * [ ] [Variables and types][c_variables]
+  * [X] [Variables and types][c_variables]
+  * [ ] [Loops][c_loops]
   * [ ] [Macros][c_macros]
   * [ ] [Codestyle][c_codestyle]
   * [ ] [Libraries][c_libraries]
@@ -30,6 +31,7 @@
 [c_codestyle]: ./C/codestyle.md
 [c_helloworld]: ./C/helloworld
 [c_variables]: ./C/variables
+[c_loops]: ./C/loops/
 [c_macros]: ./C/macros
 [c_libraries]: ./C/libraries.md
 
