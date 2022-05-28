@@ -3,6 +3,7 @@
   * [X] [Hello world][c_helloworld]
   * [X] [Variables and types][c_variables]
   * [ ] [Loops][c_loops]
+  * [X] [99 Bottles of Beer!][c_99bottles]
   * [ ] [Macros][c_macros]
   * [ ] [Codestyle][c_codestyle]
   * [ ] [Libraries][c_libraries]
@@ -32,6 +33,7 @@
 [c_helloworld]: ./C/helloworld
 [c_variables]: ./C/variables
 [c_loops]: ./C/loops/
+[c_99bottles]: /C/99%20bottles%20of%20bear/
 [c_macros]: ./C/macros
 [c_libraries]: ./C/libraries.md
 
