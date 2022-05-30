@@ -2,8 +2,14 @@
 + [C](./C):
   * [X] [Hello world][c_helloworld]
   * [X] [Variables and types][c_variables]
-  * [ ] [Loops][c_loops]
+  * [X] [Loops][c_loops]
   * [X] [99 Bottles of Beer!][c_99bottles]
+  * [ ] [Structs][c_structs]
+  * [ ] [OOP style in C][c_oop]
+  * [ ] [Pointers][c_pointers]
+  * [ ] [Void* and some fun][c_voidptr]
+  * [X] [Generic infinite Stack by array][c_gstack_ar]
+  * [ ] [Generic infinite Stack by linked list][c_gstack_l]
   * [ ] [Macros][c_macros]
   * [ ] [Codestyle][c_codestyle]
   * [ ] [Libraries][c_libraries]
@@ -28,12 +34,17 @@
   * [ ] [Variables][rust_variables]
   * [ ] [Codestyle][rust_codestyle]
   * [ ] [Libraries][rust_libraries]
+* Scala:
+  * println("Objects...")
+* Swift:
+  * after i got mac
 
 [c_codestyle]: ./C/codestyle.md
 [c_helloworld]: ./C/helloworld
 [c_variables]: ./C/variables
 [c_loops]: ./C/loops/
-[c_99bottles]: /C/99%20bottles%20of%20bear/
+[c_99bottles]: /C/99bottlesofbear/
+[c_gstack_ar]: /C/ar_stack/
 [c_macros]: ./C/macros
 [c_libraries]: ./C/libraries.md
 
