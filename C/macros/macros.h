@@ -1,3 +1,5 @@
+/* TODO add more examples */
+/* TODO explain do { } while(0) macros */
 #ifndef WVLAB_MACROS_H
 #define WVLAB_MACROS_H
 
