@@ -4,7 +4,8 @@
 /* Прототип функции факториала */
 long factorial(int n);
 
-int main(int argc, const char* argv[]) {
+int main(int argc, const char* argv[])
+{
     /* В Си существует три вида циклов:
      * 1. while (expr) {foo();}
      * 2. do {foo();} while (expr);
@@ -20,13 +21,15 @@ int main(int argc, const char* argv[]) {
     /* Добавим в массив факториалы от 0 до 9 с помощью do-while */
     long f[10];
     int a = 0;
-    do {
+    do
+    {
         f[a] = factorial(a);
         a++;
     } while (a < 10);
 
     /* Итерируем массив выводя факториалы*/
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < 10; i++)
+    {
         printf("%d! = %ld\n", i, f[i]);
     }
 
@@ -34,20 +37,24 @@ int main(int argc, const char* argv[]) {
 }
 
 
-long factorial(int n) {
+long factorial(int n)
+{
     /* Факториалы отрицательных чисел - комплексные числа
      * поэтому возвращаем -1, свидетельствуя о ошибке */
-    if (n < 0) {
+    if (n < 0)
+    {
         return -1;
     }
-    if (n == 0) {
+    if (n == 0)
+    {
         return 1;
     }
 
     long r = (long) n;
 
     /* Если n == 0, то цикл прекращается */
-    while (--n) {
+    while (--n)
+    {
         r *= n;
     }
 

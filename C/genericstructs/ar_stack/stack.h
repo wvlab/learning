@@ -5,6 +5,8 @@
 #include <stdbool.h>
 #include <stdint.h>
 
+/* TODO: Search method */
+
 /*============================*
  * Структура Стека:           *
  * Длина                      *
@@ -30,7 +32,7 @@ void deStack(stack_t*);
 
 /*Стандартные действия*/
 void* popStack(stack_t*);
-void pushStack(stack_t*, void*);
+bool pushStack(stack_t*, void*);
 
 bool isStackEmpty(const stack_t*);
 bool isStackFull(const stack_t*);

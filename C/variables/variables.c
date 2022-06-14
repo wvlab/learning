@@ -47,7 +47,8 @@ Warning: Размер зависит от спецификации компил�
 
 /* Макрос для удобного вывода размера */
 #define printsi(type) printf("Размер типа " #type " = %lu\n", sizeof(type))
-void printsize(void) {
+void printsize(void)
+{
 	printsi(void);
 	printsi(char);
 	printsi(short);
@@ -61,7 +62,8 @@ void printsize(void) {
 }
 
 
-int main(int argc, char const *argv[]) {
+int main(int argc, char const *argv[])
+{
 	printsize();
 
 	return 0;

@@ -4,16 +4,19 @@ int main(void) {
     int i = 99;
     char c[2] = "s\0";
 
-    while(i) {
+    while(i)
+    {
         printf("%d bottle%s of beer on the wall, ", i, c);
         printf("%d bottle%s of beer!\n", i, c);
         i--;
         printf("You take one down, pass it around, ");
-        if (i == 1) {
+        if (i == 1)
+        {
             /* Делаем пустую строку */
             c[0] = '\0';
         }
-        if (i == 0) {
+        if (i == 0)
+        {
             goto nobottles;
         }
         printf("%d bottle%s of beer on the wall!\n\n", i, c);
@@ -22,5 +25,5 @@ int main(void) {
     nobottles:
     printf("no more bottles of beer on the wall.\n");
 
-    return(0);
+    return 0;
 }

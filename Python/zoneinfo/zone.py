@@ -1,4 +1,4 @@
-// TODO more usage
+# TODO more usage
 from datetime import datetime
 from zoneinfo import ZoneInfo
 

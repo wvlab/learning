@@ -8,8 +8,10 @@
   * [ ] [OOP style in C][c_oop]
   * [ ] [Pointers][c_pointers]
   * [ ] [Void* and some fun][c_voidptr]
+  * [ ] [Generic structures][c_gen_structs]
   * [X] [Generic infinite Stack by array][c_gstack_ar]
   * [ ] [Generic infinite Stack by linked list][c_gstack_l]
+  * [ ] [Generic linked list][c_glinked_list]
   * [ ] [Macros][c_macros]
   * [ ] [Codestyle][c_codestyle]
   * [ ] [Libraries][c_libraries]
@@ -29,6 +31,7 @@
   * [ ] [Variables that are not variables][python_variables]
   * [ ] [Codestyle](https://peps.python.org/pep-0008/)
   * [ ] [Libraries][python_libraries]
+  * [ ] [Command line args][python_commandags]
 + [Rust](./Rust):
   * [ ] [Hello world][rust_helloworld]
   * [ ] [Variables][rust_variables]
@@ -43,14 +46,17 @@
 [c_helloworld]: ./C/helloworld
 [c_variables]: ./C/variables
 [c_loops]: ./C/loops/
-[c_99bottles]: /C/99bottlesofbear/
-[c_gstack_ar]: /C/ar_stack/
+[c_99bottles]: ./C/99bottlesofbear/
+[c_gen_structs]: ./C/genericstructs/
+[c_gstack_ar]: ./C/genericstructs/ar_stack/
+[c_glinked_list]: ./C/genericstructs/linkedlist/
 [c_macros]: ./C/macros
 [c_libraries]: ./C/libraries.md
 
 [python_helloworld]: ./Python/helloworld
 [python_variables]: ./Python/variables
 [python_libraries]: ./Python/libraries.md
+[python_commandags]: ./Python/commandlinesargs/
 
 [rust_codestyle]: ./Rust/codestyle.md
 [rust_helloworld]: ./Rust/helloworld
