@@ -33,7 +33,8 @@
 
 const char string[] = "Hello, World!";
 
-int main (int argc, char *argv[])
+int
+main (int argc, char *argv[])
 {
     /* Также можно использовать printf(), но это здесь не нужно
     при наличии функции вывода строки без форматирования.

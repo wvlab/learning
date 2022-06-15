@@ -5,7 +5,7 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-/* TODO: Search method */
+/* TODO: find method */
 
 /*============================*
  * Структура Стека:           *

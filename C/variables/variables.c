@@ -46,8 +46,9 @@ Warning: Размер зависит от спецификации компил�
  * Обычно псевдонимы определяют в заголовочных файлах. */
 
 /* Макрос для удобного вывода размера */
-#define printsi(type) printf("Размер типа " #type " = %lu\n", sizeof(type))
-void printsize(void)
+#define printsi(type) (printf("Размер типа " #type " = %lu\n", sizeof(type)))
+void
+printsize (void)
 {
 	printsi(void);
 	printsi(char);
