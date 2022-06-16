@@ -14,6 +14,15 @@ newLinkedListNode (void)
     return node;
 }
 
+void
+delLinkedListNode (llist_node_t *node)
+{
+    free(node->data);
+    free(node);
+
+    return;
+}
+
 
 /* Конструктор списка */
 llist_t *
@@ -66,14 +75,14 @@ bool
 addLList (llist_t* list, size_t index, void *data)
 {
     llist_node_t *new_node;
+    llist_node_t *buf;
 
     if (list == NULL)
       {
         fprintf(stderr, "Linked list does not exist anymore\n");
         return false;
       }
-    
-    if (index > list->len)
+    if (index > (list->len - 1))
       {
         fprintf(stderr, "IndexError: linked list index out of range\n");
         return false;
@@ -109,7 +118,7 @@ addLList (llist_t* list, size_t index, void *data)
       }
     else
       {
-        llist_node_t *buf = list->first;
+        buf = list->first;
         for (size_t i = 0; i < (index - 1); i++)
             buf = buf->next;
 
@@ -126,21 +135,52 @@ addLList (llist_t* list, size_t index, void *data)
 bool
 removeFirstLList (llist_t* list)
 {
-
+    return removeLList(list, 0);
 }
 
 
 bool
-removeLastLList(llist_t*)
+removeLastLList (llist_t* list)
 {
-
+    return removeLList(list, (list->len - 1));
 }
 
 
 bool
-removeLList(llist_t*, size_t)
+removeLList(llist_t* list, size_t index)
 {
+    llist_node_t *buf, *removed_next;
+    if (list == NULL)
+      {
+        fprintf(stderr, "Linked list does not exist anymore\n");
+        return false;
+      }
+    if (index > (list->len - 1))
+      {
+        fprintf(stderr, "IndexError: linked list index out of range\n");
+        return false;
+      }
 
+    if (index == 0)
+      {
+        buf = list->first->next;
+        delLinkedListNode(list->first);
+        list->first = buf;
+
+        return true;
+      }
+      
+    buf = list->first;
+    for (size_t i = 0; i < (index - 2); i++)
+        buf = buf->next;
+    removed_next = buf->next->next;
+    delLinkedListNode(buf->next);
+    buf->next = removed_next;
+
+    if (index == (list->len - 1))
+        list->last = removed_next;
+    
+    return true;
 }
 
 
@@ -196,14 +236,12 @@ clearLList(llist_t*)
 /* TODO: sort method */
 
 void
-printLList (llist_t* list, void (*__printdata) (void*, size_t))
+printLList (llist_t* list, void (*__print_el) (void*, size_t))
 {
-    llist_node_t *buf = list->first;
     printf("[");
-    for (size_t i = 0; i < list->len; i++)
+    for (llist_node_t *i = list->first; i != NULL; i = i->next)
       {
-        __printdata(buf->data, list->_size);
-        buf = buf->next;
+        __print_el(i->data, list->_size);
         printf(", ");
       }
     printf("\b\b]\n");

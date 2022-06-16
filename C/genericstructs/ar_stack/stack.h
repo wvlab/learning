@@ -6,6 +6,7 @@
 #include <stdint.h>
 
 /* TODO: find method */
+/* TODO: print method */
 
 /*============================*
  * Структура Стека:           *
