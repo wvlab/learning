@@ -43,37 +43,26 @@ typedef struct LinkedList llist_t;
 
 /* Конструктор*/
 llist_t *_newLinkedList(size_t);
-
 #define newLinkedList(type) (_newLinkedList(sizeof(type)))
 /*Деструктор*/
 void delLinkedList(llist_t*);
-/* Функции добавления узлов */
-bool addFirstLList(llist_t*, void*);
-
-bool addLastLList(llist_t*, void*);
-
+/* Функция добавления узлов */
 bool addLList(llist_t*, size_t, void*);
+#define addFirstLList(list, data) (addLList(list, 0, data))
+#define addLastLList(list, data) (addLList(list, list->len, data))
 /* Функции удаления узлов */
-bool removeFirstLList(llist_t*);
-
-bool removeLastLList(llist_t*);
-
 bool removeLList(llist_t*, size_t);
+#define removeFirstLList(list, data) (addLList(list, 0, data))
+#define removeLastLList(list, data) (addLList(list, list->len, data))
 /* Сеттеры */
-bool setFirstLList(llist_t*, void*);
-
-bool setLastLList(llist_t*, void*);
-
 bool setLList(llist_t*, size_t, void*);
+#define setFirstLList(list, data) (addLList(list, 0, data))
+#define setLastLList(list, data) (addLList(list, list->len, data))
 /* Геттеры */
-void* getFirstLList(llist_t*);
-
-void* getLastLList(llist_t*);
-
 void* getLList(llist_t*, size_t);
-
+#define getFirstLList(list, data) (addLList(list, 0, data))
+#define getLastLList(list, data) (addLList(list, list->len, data))
 void clearLList(llist_t*);
-
 void printLList(llist_t*, void(*)(void*, size_t));
 
 #endif
