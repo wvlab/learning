@@ -55,6 +55,21 @@ delLinkedList (llist_t *list)
     return;
 }
 
+bool
+__check_llist_index (llist_t *list, size_t index)
+{
+    if (list == NULL)
+      {
+        fprintf(stderr, "Linked list does not exist anymore\n");
+        return false;
+      }
+    if (index > (list->len - 1))
+      {
+        fprintf(stderr, "IndexError: linked list index out of range\n");
+        return false;
+      }
+    return true;
+}
 
 /* Функции добавления узлов */
 bool
@@ -72,21 +87,13 @@ addLastLList (llist_t *list, void *data)
 
 
 bool
-addLList (llist_t* list, size_t index, void *data)
+addLList (llist_t *list, size_t index, void *data)
 {
     llist_node_t *new_node;
     llist_node_t *buf;
 
-    if (list == NULL)
-      {
-        fprintf(stderr, "Linked list does not exist anymore\n");
+    if (!__check_llist_index(list, index))
         return false;
-      }
-    if (index > (list->len - 1))
-      {
-        fprintf(stderr, "IndexError: linked list index out of range\n");
-        return false;
-      }
 
     new_node = newLinkedListNode();
     if (new_node == NULL)
@@ -133,33 +140,25 @@ addLList (llist_t* list, size_t index, void *data)
 
 /* Функции удаления узлов */
 bool
-removeFirstLList (llist_t* list)
+removeFirstLList (llist_t *list)
 {
     return removeLList(list, 0);
 }
 
 
 bool
-removeLastLList (llist_t* list)
+removeLastLList (llist_t *list)
 {
     return removeLList(list, (list->len - 1));
 }
 
 
 bool
-removeLList(llist_t* list, size_t index)
+removeLList(llist_t *list, size_t index)
 {
     llist_node_t *buf, *removed_next;
-    if (list == NULL)
-      {
-        fprintf(stderr, "Linked list does not exist anymore\n");
+    if (!__check_llist_index(list, index))
         return false;
-      }
-    if (index > (list->len - 1))
-      {
-        fprintf(stderr, "IndexError: linked list index out of range\n");
-        return false;
-      }
 
     if (index == 0)
       {
@@ -187,28 +186,43 @@ removeLList(llist_t* list, size_t index)
 
 /* Сеттеры */
 bool
-setFirstLList (llist_t*, void*)
+setFirstLList (llist_t *list, void *data)
 {
-
+    return setLList(list, 0, data);
 }
 
 
 bool
-setLastLList(llist_t*, void*)
+setLastLList (llist_t *list, void *data)
 {
-
+    return setLList(list, list->len - 1, data);
 }
 
 
 bool
-setLList(llist_t*, size_t, void*)
+setLList (llist_t *list, size_t index, void *data)
 {
+    if (!__check_llist_index(list, index))
+        return false;
 
+    llist_node_t *buf;
+    if (index == 0)
+        buf = list->first;
+    else if (index == (list->len - 1))
+        buf = list->last;
+    else
+      {
+        buf = list->first;
+        for (size_t i = 0; i < index; i++)
+            buf = buf->next;
+      }
+    memcpy(buf->data, data, list->_size);
 
+    return true;
 }
 /* Геттеры */
 void *
-getFirstLList (llist_t*, void*)
+getFirstLList (llist_t *, void*)
 {
 
 }
