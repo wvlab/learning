@@ -38,7 +38,7 @@ _newLinkedList (size_t size)
 }
 
 
-/* Деструктор */
+/* Деструктор списка*/
 void
 delLinkedList (llist_t *list)
 {
@@ -71,20 +71,7 @@ __check_llist_index (llist_t *list, size_t index)
     return true;
 }
 
-/* Функции добавления узлов */
-bool
-addFirstLList (llist_t *list, void *data)
-{
-    return addLList(list, 0, data);
-}
-
-
-bool
-addLastLList (llist_t *list, void *data)
-{
-    return addLList(list, list->len - 1, data);
-}
-
+/* Функция добавления узлов */
 
 bool
 addLList (llist_t *list, size_t index, void *data)
@@ -138,21 +125,7 @@ addLList (llist_t *list, size_t index, void *data)
 }
 
 
-/* Функции удаления узлов */
-bool
-removeFirstLList (llist_t *list)
-{
-    return removeLList(list, 0);
-}
-
-
-bool
-removeLastLList (llist_t *list)
-{
-    return removeLList(list, (list->len - 1));
-}
-
-
+/* Функция удаления узлов */
 bool
 removeLList(llist_t *list, size_t index)
 {
@@ -160,6 +133,7 @@ removeLList(llist_t *list, size_t index)
     if (!__check_llist_index(list, index))
         return false;
 
+    list->len -= 1;
     if (index == 0)
       {
         buf = list->first->next;
@@ -176,29 +150,14 @@ removeLList(llist_t *list, size_t index)
     delLinkedListNode(buf->next);
     buf->next = removed_next;
 
-    if (index == (list->len - 1))
+    if (index == list->len)
         list->last = buf;
     
-    list->len -= 1;
     return true;
 }
 
 
-/* Сеттеры */
-bool
-setFirstLList (llist_t *list, void *data)
-{
-    return setLList(list, 0, data);
-}
-
-
-bool
-setLastLList (llist_t *list, void *data)
-{
-    return setLList(list, list->len - 1, data);
-}
-
-
+/* Сеттер */
 bool
 setLList (llist_t *list, size_t index, void *data)
 {
@@ -220,32 +179,37 @@ setLList (llist_t *list, size_t index, void *data)
 
     return true;
 }
-/* Геттеры */
-void *
-getFirstLList (llist_t *, void*)
-{
 
+/* Геттер */
+void *
+getLList (llist_t *list, size_t index)
+{
+    if (!__check_llist_index(list, index))
+        return NULL;
+
+    if (index == (list->len - 1))
+        return list->last->data;
+
+    llist_node_t *buf = list->first;
+    for (size_t i = 0; i < index; i++)
+        buf = buf->next;
+
+    return buf->data;
 }
 
 
-void *
-getLastLList (llist_t*, void*)
+void
+clearLList (llist_t* list)
 {
-
-}
-
-
-void *
-getLList(llist_t*, size_t, void*)
-{
-
-}
-
-
-bool
-clearLList(llist_t*)
-{
-
+    llist_node_t *buf;
+    list->last = NULL;
+    while ((buf = list->first) != NULL)
+      {
+        list->first = buf->next;
+        delLinkedListNode(buf);
+      }
+    
+    return;
 }
 
 /* TODO: sort method */
@@ -253,6 +217,9 @@ clearLList(llist_t*)
 void
 printLList (llist_t* list, void (*__print_el) (void*, size_t))
 {
+    if (list->len == 0)
+        return;
+
     printf("[");
     for (llist_node_t *i = list->first; i != NULL; i = i->next)
       {

@@ -66,13 +66,13 @@ bool setLastLList(llist_t*, void*);
 
 bool setLList(llist_t*, size_t, void*);
 /* Геттеры */
-void* getFirstLList(llist_t*, void*);
+void* getFirstLList(llist_t*);
 
-void* getLastLList(llist_t*, void*);
+void* getLastLList(llist_t*);
 
-void* getLList(llist_t*, size_t, void*);
+void* getLList(llist_t*, size_t);
 
-bool clearLList(llist_t*);
+void clearLList(llist_t*);
 
 void printLList(llist_t*, void(*)(void*, size_t));
 
