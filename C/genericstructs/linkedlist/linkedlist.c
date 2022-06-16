@@ -17,14 +17,14 @@ newLinkedListNode (void)
 
 /* Конструктор списка */
 llist_t *
-_NewLinkedList (size_t size)
+_newLinkedList (size_t size)
 {
     llist_t *list = malloc(sizeof(llist_t));
     list->len = 0;
     list->_size = size;
     list->first = NULL;
     list->last = NULL;
-    
+
     return list;
 }
 
@@ -58,21 +58,66 @@ addFirstLList (llist_t *list, void *data)
 bool
 addLastLList (llist_t *list, void *data)
 {
-    return addLList(list, list->len, data);
+    return addLList(list, list->len - 1, data);
 }
 
 
 bool
 addLList (llist_t* list, size_t index, void *data)
 {
+    llist_node_t *new_node;
+
     if (list == NULL)
       {
         fprintf(stderr, "Linked list does not exist anymore\n");
         return false;
       }
     
+    if (index > list->len)
+      {
+        fprintf(stderr, "IndexError: linked list index out of range\n");
+        return false;
+      }
 
+    new_node = newLinkedListNode();
+    if (new_node == NULL)
+        return false;
 
+    new_node->data = malloc(list->_size);
+    if (new_node->data == NULL)
+      {
+        fprintf(stderr, "Insufficient memory to allocate node data\n");
+        // delLinkedListNode(new_node);
+        return false;
+      }
+    memcpy(new_node->data, data, list->_size);
+
+    if (index == (list->len - 1))
+      {
+        if (list->last != NULL)
+            list->last->next = new_node;
+        list->last = new_node;
+        if (list->len == 0)
+            list->first = new_node;
+      }
+    else if (index == 0)
+      {
+        new_node->next = list->first;
+        list->first = new_node;
+        if (list->len == 0)
+            list->last = new_node;
+      }
+    else
+      {
+        llist_node_t *buf = list->first;
+        for (size_t i = 0; i < (index - 1); i++)
+            buf = buf->next;
+
+        new_node->next = buf->next;
+        buf->next = new_node;
+      }
+
+    list->len += 1;
     return true;
 }
 
@@ -149,3 +194,19 @@ clearLList(llist_t*)
 }
 
 /* TODO: sort method */
+
+void
+printLList (llist_t* list, void (*__printdata) (void*, size_t))
+{
+    llist_node_t *buf = list->first;
+    printf("[");
+    for (size_t i = 0; i < list->len; i++)
+      {
+        __printdata(buf->data, list->_size);
+        buf = buf->next;
+        printf(", ");
+      }
+    printf("\b\b]\n");
+
+    return;
+}

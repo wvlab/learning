@@ -20,8 +20,9 @@ struct LinkedListNode
 typedef struct LinkedListNode llist_node_t;
 
 
-llist_node_t* newLinkedListNode(void);
+llist_node_t *newLinkedListNode(void);
 
+void delLinkedListNode(llist_node_t*);
 
 /*=============================*
  * Структура связного списка:  *
@@ -41,8 +42,9 @@ struct LinkedList
 typedef struct LinkedList llist_t;
 
 /* Конструктор*/
-#define newLinkedList(type) (_newLinkedList(sizeof(type)))
 llist_t *_newLinkedList(size_t);
+
+#define newLinkedList(type) (_newLinkedList(sizeof(type)))
 /*Деструктор*/
 void delLinkedList(llist_t*);
 /* Функции добавления узлов */
@@ -71,5 +73,7 @@ void* getLastLList(llist_t*, void*);
 void* getLList(llist_t*, size_t, void*);
 
 bool clearLList(llist_t*);
+
+void printLList(llist_t*, void(*)(void*, size_t));
 
 #endif
