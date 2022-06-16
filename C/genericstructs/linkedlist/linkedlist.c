@@ -171,15 +171,16 @@ removeLList(llist_t* list, size_t index)
       }
       
     buf = list->first;
-    for (size_t i = 0; i < (index - 2); i++)
+    for (size_t i = 0; i < (index - 1); i++)
         buf = buf->next;
     removed_next = buf->next->next;
     delLinkedListNode(buf->next);
     buf->next = removed_next;
 
     if (index == (list->len - 1))
-        list->last = removed_next;
+        list->last = buf;
     
+    list->len -= 1;
     return true;
 }
 
