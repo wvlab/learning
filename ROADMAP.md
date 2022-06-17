@@ -5,13 +5,16 @@
   * [X] [Loops][c_loops]
   * [X] [99 Bottles of Beer!][c_99bottles]
   * [ ] [Structs][c_structs]
+  * [ ] [Unions][c_unions]
   * [ ] [OOP style in C][c_oop]
+  * [ ] [Funcs in C][c_funcs]
+  * [X] [What is recursion?][c_whatsrecursion]
   * [ ] [Pointers][c_pointers]
   * [ ] [Void* and some fun][c_voidptr]
   * [ ] [Generic structures][c_gen_structs]
   * [X] [Generic infinite Stack by array][c_gstack_ar]
   * [ ] [Generic infinite Stack by linked list][c_gstack_l]
-  * [ ] [Generic linked list][c_glinked_list]
+  * [X] [Generic linked list][c_glinked_list]
   * [ ] [Macros][c_macros]
   * [ ] [Codestyle][c_codestyle]
   * [ ] [Libraries][c_libraries]
@@ -47,6 +50,7 @@
 [c_variables]: ./C/variables
 [c_loops]: ./C/loops/
 [c_99bottles]: ./C/99bottlesofbear/
+[c_whatsrecursion]: ./C/whatsrecursion/
 [c_gen_structs]: ./C/genericstructs/
 [c_gstack_ar]: ./C/genericstructs/ar_stack/
 [c_glinked_list]: ./C/genericstructs/linkedlist/
